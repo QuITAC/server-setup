@@ -1,5 +1,9 @@
 git
-docker
 curl
 wget
+gnupg
+ca-certificates
+systemd
 uidmap
+slirp4netns
+fuse-overlayfs
