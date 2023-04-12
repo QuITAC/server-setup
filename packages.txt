@@ -1,0 +1,5 @@
+git
+docker
+curl
+wget
+uidmap
