@@ -22,7 +22,6 @@ useradd -m quitac
 passwd quitac
 ```
 
-
 ### Docker
 
 Install docker headless with as per [Debian Install Manual](https://docs.docker.com/engine/install/debian/)
@@ -31,15 +30,16 @@ Install the rootless setup with
 
 ```bash
 sudo apt-get install -y docker-ce-rootless-extras
-
 ```
+
 switch to the new useraccount with `ssh quitac@localhost`. this is importand as some systemd commands only work this way!
 
-run
+Now, run
+
 ``` bash
 dockerd-rootless-setuptool.sh install
 ```
 
-and enter the export entries that the script provied into the `.bashrc` of the user. Further follow the (rootless guide)[https://docs.docker.com/engine/security/rootless/] under `Usage` for systemd. REmeber that you cannot run as sudo, so replace `$(whoami)` with quitac and switch back to the root user for sudo results.
+and enter the export entries that the script provied into the `.bashrc` of the user. Further follow the [rootless guide](https://docs.docker.com/engine/security/rootless/) under `Usage` for systemd. REmeber that you cannot run as sudo, so replace `$(whoami)` with quitac and switch back to the root user for sudo results.
 
 follow the guide  under `Best Practices/Exposing privileged ports`.
