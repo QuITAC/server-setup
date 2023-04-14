@@ -42,4 +42,17 @@ dockerd-rootless-setuptool.sh install
 
 and enter the export entries that the script provied into the `.bashrc` of the user. Further follow the [rootless guide](https://docs.docker.com/engine/security/rootless/) under `Usage` for systemd. REmeber that you cannot run as sudo, so replace `$(whoami)` with quitac and switch back to the root user for sudo results.
 
-follow the guide  under `Best Practices/Exposing privileged ports`.
+### Exposing privileged ports
+
+iptables needs to map the privileged ports to unprivileged ones.
+
+```bash
+iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 80 -j REDIRECT --to-ports 1080
+iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 1080
+iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 443 -j REDIRECT --to-ports 1443
+iptables -t nat -I PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 1443
+
+iptables-save > /etc/sysconfig/iptables
+```
+
+or follow [this guide](https://docs.docker.com/engine/security/rootless/#exposing-privileged-ports)
