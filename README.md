@@ -75,10 +75,10 @@ flowchart LR
 	
 	traefik <--> authentik
 	User:::hidden -- users --> traefik
-    traefik --> wordpress
-    authentik -. internal users .-> nextcloud
-    traefik -- publicly shared ressources --> nextcloud
-    authentik  -.  website admins.-> wordpress
+	traefik --> wordpress
+	authentik -. internal users .-> nextcloud
+	traefik -- publicly shared ressources --> nextcloud
+	authentik  -.  website admins.-> wordpress
 ```
 
 ## Steps
