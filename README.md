@@ -35,7 +35,7 @@ Their default password is the `USER#1705`.
 Afterwards add a user with the username USER
 
 ```bash
-adduser USER --conf adduser.conf --comments "" --disable-password
+adduser USER --conf adduser.conf --comments "" --disabled-password
 echo "USER:some_default_pw_the_users_only_use_on_first_login" | chpasswd
 passwd -e USER
 ```
@@ -43,6 +43,7 @@ passwd -e USER
 This creates the user, sets the pw to the default password and prompts them to immediately change it afterwards.
 
 Remove users with alternatively without the --remove-home if the home data should be recoverable.
+
 ```bash
 deluser USER --remove-home
 ```

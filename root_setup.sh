@@ -27,14 +27,14 @@ apt install -y \
     git vim htop ncdu
 
 # append to skeleton .bashrc
-cat .bashrc_extension >> /ect/skel/.bashrc
+cat .bashrc_extension >> /etc/skel/.bashrc
 
 # add users
 if [[ -f "adduser.conf" && -f "users.txt" ]];
 then
     cat users.txt | while read user || [[ -n $user ]];
     do
-        adduser $user --conf adduser.conf --comment "" --disable-password
+        adduser $user --conf adduser.conf --comment "" --disabled-password
         echo "$user:$user#1705"  | chpasswd
         passwd -e $user
     done
