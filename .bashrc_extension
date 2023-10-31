@@ -1,0 +1,5 @@
+# this is extended to all .bashrcs during setup
+
+# docker convienience
+
+function dc(){ docker compose "$@"; }
