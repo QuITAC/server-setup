@@ -47,3 +47,13 @@ Remove users with alternatively without the --remove-home if the home data shoul
 ```bash
 deluser USER --remove-home
 ```
+
+### Setup for users
+
+First change your password. The server shouldn't let you connect without a pw change anyways.
+
+Second me (max), personally, I've setup ssh by adding the public key of my local home machine to the `~/.ssh/authorized_keys` file and generated a new key for the server and the user with `ssh-keygen`. The public key that has been generated has to be added to github under __[my profile] > settings > SSH Keys__ so that I can use ssh to pull and push from github. This is especially needed, since github only allows https access with specific one-time urls.
+
+After that I only cloned the `QuITAc/queerreferat_ac` repo to work on the stack.
+
+Btw, you can connect to the server (and the project once it has been cloned) with vscode. You will get a local terminal and a nice editor.
